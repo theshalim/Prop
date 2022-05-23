@@ -41,9 +41,11 @@
                 @Html.DisplayFor(modelItem => item.EmpEmail)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                @*<a asp-action="Details" asp-route-id="@item.Id">Details</a> |*@
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a href=" https://localhost:44361/hr/Employee/Delete"  class="btn btn-outline-primary" asp-route-id="@item.Id">Delete</a>
+                <a href=" https://localhost:44361/hr/Employee/Edit"   class="btn btn-outline-primary" asp-route-id="@item.Id">Edit</a>
+                @*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+               <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
             </td>
         </tr>
 }
