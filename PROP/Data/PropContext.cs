@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PROP.Areas.Technical.Models;
 
 namespace PROP.Data
 {
@@ -16,6 +17,7 @@ namespace PROP.Data
         }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<NewStudent> NewStudents { get; set; }
+        public DbSet<PROP.Areas.Technical.Models.TechnicalTeam> TechnicalTeam { get; set; }
     }
   
 }
