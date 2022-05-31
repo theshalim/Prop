@@ -8,17 +8,17 @@ using PROP.Services.Interface;
 
 namespace PROP.Controllers
 {
-    public class NewStudentController : Controller
+    public class ProductOriginController : Controller
     {
-        private readonly INewStudent _newStudent;
-        public NewStudentController (INewStudent newStudent)
+        private readonly IProductOrigin _Origin;
+        public ProductOriginController(IProductOrigin Origin)
         {
-            _newStudent = newStudent;
+            _Origin = Origin;
         }
         public IActionResult Index()
         {
-            var NewStu = _newStudent.GetAll();
-            return View(NewStu);
+            var product = _Origin.GetAll();
+            return View(product);
         }
 
         //ShowSearchForm
@@ -42,47 +42,47 @@ namespace PROP.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Create(NewStudent NewStudents)
+        public IActionResult Create(ProductOrigin ProductOrigins)
         {
-            _newStudent.Add(NewStudents);
-            _newStudent.Save();
+            _Origin.Add(ProductOrigins);
+            _Origin.Save();
             return RedirectToAction("Index");
         }
 
         //Delete
         [HttpGet]
-        public IActionResult Delete(int Id)
+        public IActionResult Delete(int OriginId)
         {
-            var newStudent = _newStudent.GetById(Id);
-            return View(newStudent);
+            var product = _Origin.GetById(OriginId);
+            return View(product);
         }
         [HttpPost]
-        public IActionResult Delete(NewStudent NewStudents)
+        public IActionResult Delete(ProductOrigin ProductOrigins)
         {
-            _newStudent.Delete(NewStudents);
-            _newStudent.Save();
+            _Origin.Delete(ProductOrigins);
+            _Origin.Save();
             return RedirectToAction("Index");
         }
 
         //Edit
         [HttpGet]
-        public IActionResult Edit(int Id)
+        public IActionResult Edit(int OriginId)
         {
-            var newStudent = _newStudent.GetById(Id);
-            return View(newStudent);
+            var product = _Origin.GetById(OriginId);
+            return View(product);
         }
         [HttpPost]
-        public IActionResult Edit(NewStudent NewStudents)
+        public IActionResult Edit(ProductOrigin ProductOrigins)
         {
-            _newStudent.Update(NewStudents);
-            _newStudent.Save();
+            _Origin.Update(ProductOrigins);
+            _Origin.Save();
             return RedirectToAction("Index");
         }
         [HttpGet]
-        public IActionResult Details(int Id)
+        public IActionResult Details(int OriginId)
         {
-            var newStudent = _newStudent.GetById(Id);
-            return View(newStudent);
+            var product = _Origin.GetById(OriginId);
+            return View(product);
         }
     }
 }

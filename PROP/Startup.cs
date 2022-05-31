@@ -36,8 +36,11 @@ namespace PROP
             });
 
             services.AddDbContext<PropContext>(option => option.UseSqlServer(Configuration.GetConnectionString("PropConn")));
-            services.AddTransient<IEmployee, EmployeeService>();
+
+            services.AddTransient<IProductOrigin, ProductOriginService>();
+            services.AddTransient<IProduct, ProductService>();
             services.AddTransient<INewStudent, NewStudentService>();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
